@@ -12,11 +12,11 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 });
 ---
 <MainLayout title="Titel">
-		<section class="grid md:grid-cols-2 border-8 border-black lg:mt-32 animate-wiggle">		
-			<div class="animate-wiggle">
-				<Image src={musik1} alt="Musik som levevej" class="animate-wiggle" />
+		<section class="grid md:grid-cols-2 border-8 border-black lg:mt-32">		
+			<div class="">
+				<Image src={musik1} alt="Musik som levevej" class="" />
 			</div>
-			<div class="text-4xl p-8 grid content-center bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% animate-wiggle">					
+			<div class="text-4xl p-8 grid content-center bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">					
 				<p class="pb-8">Musik som levevej</p>
 				<p class="mb-8 text-2xl">Et kursus i at blive stinkende rig som musiker - af musiker og multimillionær Jørgen Henning</p>
 				<Link variant="primary" size="medium" href="#tilmelding">Tilmeld dig til kurset!</Link>
@@ -41,9 +41,9 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 		</section>
 		
 		<section class="mt-32 grid lg:grid-cols-3 mx-auto gap-4 items-center">
-			<div><Image src={musik2} format="webp" alt=" midtersideopslag" class="my-class" /></div>
-			<div><Image src={musik3} format="webp" alt=" midtersideopslag" class="my-class" /></div>
-			<div><Image src={musik4} format="webp" alt="" class="my-class" /></div>
+			<div><Image src={musik2} format="webp" alt="foto" class="my-class" /></div>
+			<div><Image src={musik3} format="webp" alt="foto" class="my-class" /></div>
+			<div><Image src={musik4} format="webp" alt="foto" class="my-class" /></div>
 		</section>
 
 		<section class="mt-32">
@@ -89,9 +89,9 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 			</div>
 		</section>
 
-		<section id="underviseren" class="grid lg:grid-cols-2 mt-32 max-w-3xl mx-auto gap-6 elementmedanimation1"> 
+		<section id="underviseren" class="grid lg:grid-cols-2 mt-32 max-w-3xl mx-auto gap-6"> 
 			<div>
-				<Image src={musik3} alt="Sten Simons - forfatter, Københavnerbilleder" class="" />
+				<Image src={musik3} alt="Jørn henning" class="" />
 			</div>
 			<article class="prose">
 				<h2 class="text-4xl">Underviseren</h2>
@@ -100,7 +100,7 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 			</article>
 		</section>
 
-		<section id="inspiration" class="mt-32 elementmedanimation2">
+		<section id="inspiration" class="mt-32">
 			<h2 class="text-4xl font-bold">Inspiration fra tidligere kurser</h2>
 			<div class="columns-2 lg:columns-4">
 			{
