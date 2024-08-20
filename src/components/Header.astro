@@ -1,5 +1,28 @@
 ---
+import Link from '../components/Link.astro'
 ---
-<div>
-Header - tilføj navigation mm.
+<div x-data="{ showmenu: false }" class="p-4 fixed lg:static w-full z-10 bg-white" >
+<div id="navbar" class="flex flex-row justify-between">
+<div id="logo" class="">
+<a href="#navbar">Musik som levevej</a>
+</div>
+<nav id="desktopmenu" class="hidden lg:block">
+<ul class="flex flex-row gap-4">
+<li class=""><Link href="#kursusgange" >Kursusgange</Link></li><!-- alternativt: lav et <a href="">Link</a>, hvis du ikke vil bruge Link.astro komponenten -->
+<li class=""><Link href="#underviseren" >Underviseren</Link></li>
+<li class=""><Link href="#inspiration" >Inspiration</Link></li>
+<li class=""><Link href="#tilmelding" >Tilmelding</Link></li>
+</ul>
+</nav>
+<button id="burgermenu" class="lg:hidden" x-on:click="showmenu = ! showmenu">Menu</button>
+</div>
+<nav id="mobilmenu" class="flex flex-col content-center pt-4" 
+x-show="showmenu" x-transition x-on:click="showmenu = false" x-on:click.outside="showmenu = false">
+<ul >
+    <li class=""><Link href="#kursusgange" >Kursusgange</Link></li><!-- alternativt: lav et <a href="">Link</a>, hvis du ikke vil bruge Link.astro komponenten -->
+    <li class=""><Link href="#underviseren" >Underviseren</Link></li>
+    <li class=""><Link href="#inspiration" >Inspiration</Link></li>
+    <li class=""><Link href="#tilmelding" >Tilmelding</Link></li>
+</ul>
+</nav>
 </div>

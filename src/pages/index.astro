@@ -2,11 +2,176 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Button from '../components/Button.astro';
 import Link from '../components/Link.astro';
+import { Image } from 'astro:assets';
+import bogforside from "../assets/images/musik1.jpg";
+import bogopslag from "../assets/images/musik2.jpg";
+import bogopslag2 from "../assets/images/musik3.jpg";
+import bogforfatter from "../assets/images/musik4.jpg";
+const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
+  return files.map(file => file.default);
+});
 ---
 <MainLayout title="Titel">
-	<article>
-		<h1>Index overskrift</h1>
-		<Button>Klik!</Button>
-		<p>Link til <Link href="https://www.kea.dk" target="_blank">En anden side</Link></p>
-	</article>
+		<section class="grid md:grid-cols-2 border-8 border-black lg:mt-32">		
+			<div class="">
+				<Image src={bogforside} alt="Musik som levevej" class="" />
+			</div>
+			<div class="text-4xl p-8 grid content-center bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">					
+				<p class="pb-8">Musik som levevej</p>
+				<p class="mb-8 text-2xl">Et kursus i at blive stinkende rig som musiker - af musiker og multimillionær Jørgen Henning</p>
+				<Link variant="primary" size="medium" href="#tilmelding">Tilmeld dig til kurset!</Link>
+			</div>
+		</section>
+
+		<section id="bogen" class="mt-32 grid lg:grid-cols-2 prose mx-auto gap-4">
+			<article  >
+				<h2 class="text-4xl">Kort om kurset</h2>
+				<p>Musik som levevej er de danske musikeres grundkursus i at tjene penge: Kurset gennemgår alt fra at tjene penge på koncerter, musiksalg og merchandise til små svindelnumre du kan lave, når det ser allermørkest ud.</p>
+			</article>
+			<article >
+				<h2 class="text-4xl">Hurtige facts om kurset</h2>
+				<ul>
+					<li>Titel: Musik som levevej</li>
+					<li>Forfatter: Jørn Henning</li>
+					<li>Omfang: Lynkursus - weekendkursus, med diverse kursusmaterialer</li>
+					<li>Udbyder: Musikforbundet</li>
+					<li>Pris: 1200.-</li>
+				</ul>
+			</article>
+		</section>
+		
+		<section class="mt-32 grid lg:grid-cols-3 mx-auto gap-4 items-center">
+			<div><Image src={bogopslag} format="webp" alt=" midtersideopslag" class="my-class" /></div>
+			<div><Image src={bogopslag2} format="webp" alt=" midtersideopslag" class="my-class" /></div>
+			<div><Image src={bogforside} format="webp" alt="" class="my-class" /></div>
+		</section>
+
+		<section class="mt-32">
+			<h2 class="text-4xl font-bold">Kursisterne siger</h2>
+			<div class="grid grid-cols-1 lg:grid-cols-3 mx-auto gap-4">
+				<article class="prose mb-6">
+					<span class="font-bold">Godt</span>
+					<p>Jørns kursus er sjovt, og kursisterne bliver forkælet med kaffe og avec i pauserne. Jeg kunne ikke forlange mere (bort set fra lidt wienerbrød)</p>
+					<p class="italic">Sanne Tovgaard, Proletikken</p>
+				</article>
+				<article class="prose mb-6">
+					<span class="font-bold">Jeg gik glad hjem</span>
+					<p>Oplæggende er underholdende, og der er masser af sjove historier om små, snedige tricks man kan bruge til at lokke penge ud af folk. Hvad mere skal man sige om et kursus?</p>
+					<p class="italic">Kim Broggaard, muzaktilmasserne.dk</p>
+				</article>
+				<article  class="prose mb-6">
+					<span class="font-bold">Sjove anekdoter</span>
+					<p>Jørn kan det der - og han bliver bedre og bedre. Klart det bedste af Jørns kurser - De tre første var også lidt sløve, men her... Han viser han mestrer forførelsesns kunst” Tillykke - godt arbejde.</p>
+					<p class="italic">Folmer Bro, folmerbrorocks.dk</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="mt-32" id="kursusgange">
+			<h2 class="text-4xl font-bold">Kursusgange</h2>
+			<div class="grid grid-cols-1 lg:grid-cols-2 mx-auto mt-4 gap-8">
+				<article class="prose">
+					<h3 class="text-xl">Kursusgang 1 - Alle kan tjene på musik</h3>
+					<p>Selvom du synger og spiller dårligt, kan du sagtens tjene penge på musik. Tænk bare på DJ Alligator - han griner stadig hele vejen til banken. </p>
+				</article>
+				<article class="prose">
+					<h3 class="text-xl">Kapitel 2 - Spil live og tjen penge</h3>
+					<p>Koncerter er en vaskeægte pengemaskine. Udnyt det til fulde med gode kontrakter - og pas på at spillestederne ikke tager røven på dig.</p>
+				</article>
+				<article class="prose">
+					<h3 class="text-xl">Kapitel 3 - Merchandisemaskineriet</h3>
+					<p>Lær at sælge t-shirts og andet unødvendigt merchandise med stor profit. Pengene sidder løst på fulde koncertgæster - det er som at stjæle slik fra børn.</p>
+				</article>
+				<article class="prose">
+					<h3 class="text-xl">Kapitel 4 - Svindel og humbug</h3>
+					<p>Sidste kursusgang handler om små tricks: Spil på gaden (busking), snyd med selvangivelsen, udnyttelse af venner og familie samt eventuelt bedrageri af forretningsforbindelser - intet er for fint til at overleve i en stærkt presset musikbranche</p>
+				</article>		
+			</div>
+		</section>
+
+		<section id="underviseren" class="grid lg:grid-cols-2 mt-32 max-w-3xl mx-auto gap-6"> 
+			<div>
+				<Image src={bogforfatter} alt="Sten Simons - forfatter, Københavnerbilleder" class="" />
+			</div>
+			<article class="prose">
+				<h2 class="text-4xl">Underviseren</h2>
+				<p>Jørn Henning har en lang musik-karriere bag sig. Det hele startede i 00’erne, da han gik rundt i Pisserenden med sin guitar. Senere fik han en række hits, blandt andet "Jeg har fået hikke" og "Ungdomsdruk"</p>
+				<p>Derefter tog karrieren fart: Han blev musiklærer og skrev en masse sange om dagligdagsstof, blandt andet hittet "På et møntvaskeri" og "Tutti Frutti i min fryser." </p>		
+			</article>
+		</section>
+
+		<section id="inspiration" class="mt-32">
+			<h2 class="text-4xl font-bold">Inspiration fra tidligere kurser</h2>
+			<div class="columns-2 lg:columns-4">
+			{
+				images.map(({ src }) => (
+				<div class="">
+					<img
+						src={src}
+						class="mb-4"
+						alt=""
+						loading="lazy"
+					/>
+				</div>
+				))
+			}
+			</div>
+		</section>
+		<!-- tailwind form -->
+	<section  id="tilmelding" class="max-w-lg mx-auto mt-32 p-4">
+		<h2 class="text-4xl font-bold pb-4">Tilmeld dig</h2>
+		<form class="space-y-4 grid grid-cols-1 gap-6">
+
+			<div class="">
+				<label for="kursusgang">Kursusgang:</label>					
+				<select name="kursusgang" id="kursusgang">
+					<option value="oktober">Oktober 2024</option>
+					<option value="december">December 2024</option>
+					<option value="februar">Februar 2025</option>
+				</select>
+			</div>
+
+			<div class="">
+				<span>Betaling:</span>
+				<input type="radio" id="forud" name="levering" checked="checked">
+				<label for="forud">Forudbetaling</label>
+				<input type="radio" id="kredit" name="levering">
+				<label for="kredit">Kredit</label>
+				<input type="radio" id="kontant" name="levering">
+				<label for="kontant">Kontant</label>
+				
+			</div>
+		
+			<div class="grid gap-3">
+				<label for="navn">Navn:</label>
+				<input type="text" id="navn" name="navn" placeholder="Anders And">
+			</div>
+
+			<div class="grid gap-3">
+				<label for="adresse">Adresse:</label>
+				<input type="text" id="adresse" name="adresse" placeholder="Paradisæblevej 8">
+			</div>
+
+			<div class="grid gap-3 grid-cols-6">
+				<label for="postnummer" class="col-span-6">Postnummer & by:</label>
+				<input type="text" id="postnummer" name="postnummer" class="col-span-2" placeholder="0900">
+				<input type="text" id="bynavn" name="bynavn" disabled class="col-span-4" placeholder="Andeby C">
+			</div>
+
+			<div class="grid gap-3">
+				<label for="telefon">Telefon:</label>
+				<input type="tel" id="telefon" name="telefon" placeholder="555-555">
+			</div>
+
+			<div class="">
+				<input type="checkbox" id="nyhedsbrev" name="nyhedsbrev">
+				<label for="nyhedsbrev">Ja tak til nyhedsbreve og tilbud</label>
+			</div>
+
+			<div class="flex justify-end">
+				<Button variant="primary" size="medium">Til betaling</Button>
+			</div>
+		</form>
+	</section>
+	<!-- tailwind form slut -->
 </MainLayout>
