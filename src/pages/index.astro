@@ -3,20 +3,20 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Button from '../components/Button.astro';
 import Link from '../components/Link.astro';
 import { Image } from 'astro:assets';
-import bogforside from "../assets/images/musik1.jpg";
-import bogopslag from "../assets/images/musik2.jpg";
-import bogopslag2 from "../assets/images/musik3.jpg";
-import bogforfatter from "../assets/images/musik4.jpg";
+import musik1 from "../assets/images/musik1.jpg";
+import musik2 from "../assets/images/musik2.jpg";
+import musik3 from "../assets/images/musik3.jpg";
+import musik4 from "../assets/images/musik4.jpg";
 const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
   return files.map(file => file.default);
 });
 ---
 <MainLayout title="Titel">
-		<section class="grid md:grid-cols-2 border-8 border-black lg:mt-32">		
-			<div class="">
-				<Image src={bogforside} alt="Musik som levevej" class="" />
+		<section class="grid md:grid-cols-2 border-8 border-black lg:mt-32 animate-wiggle">		
+			<div class="animate-wiggle">
+				<Image src={musik1} alt="Musik som levevej" class="animate-wiggle" />
 			</div>
-			<div class="text-4xl p-8 grid content-center bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">					
+			<div class="text-4xl p-8 grid content-center bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% animate-wiggle">					
 				<p class="pb-8">Musik som levevej</p>
 				<p class="mb-8 text-2xl">Et kursus i at blive stinkende rig som musiker - af musiker og multimillionær Jørgen Henning</p>
 				<Link variant="primary" size="medium" href="#tilmelding">Tilmeld dig til kurset!</Link>
@@ -41,9 +41,9 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 		</section>
 		
 		<section class="mt-32 grid lg:grid-cols-3 mx-auto gap-4 items-center">
-			<div><Image src={bogopslag} format="webp" alt=" midtersideopslag" class="my-class" /></div>
-			<div><Image src={bogopslag2} format="webp" alt=" midtersideopslag" class="my-class" /></div>
-			<div><Image src={bogforside} format="webp" alt="" class="my-class" /></div>
+			<div><Image src={musik2} format="webp" alt=" midtersideopslag" class="my-class" /></div>
+			<div><Image src={musik3} format="webp" alt=" midtersideopslag" class="my-class" /></div>
+			<div><Image src={musik4} format="webp" alt="" class="my-class" /></div>
 		</section>
 
 		<section class="mt-32">
@@ -89,9 +89,9 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 			</div>
 		</section>
 
-		<section id="underviseren" class="grid lg:grid-cols-2 mt-32 max-w-3xl mx-auto gap-6"> 
+		<section id="underviseren" class="grid lg:grid-cols-2 mt-32 max-w-3xl mx-auto gap-6 elementmedanimation1"> 
 			<div>
-				<Image src={bogforfatter} alt="Sten Simons - forfatter, Københavnerbilleder" class="" />
+				<Image src={musik3} alt="Sten Simons - forfatter, Københavnerbilleder" class="" />
 			</div>
 			<article class="prose">
 				<h2 class="text-4xl">Underviseren</h2>
@@ -100,7 +100,7 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 			</article>
 		</section>
 
-		<section id="inspiration" class="mt-32">
+		<section id="inspiration" class="mt-32 elementmedanimation2">
 			<h2 class="text-4xl font-bold">Inspiration fra tidligere kurser</h2>
 			<div class="columns-2 lg:columns-4">
 			{
