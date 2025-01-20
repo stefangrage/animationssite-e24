@@ -46,27 +46,6 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 			<div><Image src={musik4} format="webp" alt="foto" class="my-class" /></div>
 		</section>
 
-		<section class="mt-32">
-			<h2 class="text-4xl font-bold">Kursisterne siger</h2>
-			<div class="grid grid-cols-1 lg:grid-cols-3 mx-auto gap-4">
-				<article class="prose mb-6">
-					<span class="font-bold">Godt</span>
-					<p>Jørns kursus er sjovt, og kursisterne bliver forkælet med kaffe og avec i pauserne. Jeg kunne ikke forlange mere (bort set fra lidt wienerbrød)</p>
-					<p class="italic">Sanne Tovgaard, Proletikken</p>
-				</article>
-				<article class="prose mb-6">
-					<span class="font-bold">Jeg gik glad hjem</span>
-					<p>Oplæggende er underholdende, og der er masser af sjove historier om små, snedige tricks man kan bruge til at lokke penge ud af folk. Hvad mere skal man sige om et kursus?</p>
-					<p class="italic">Kim Broggaard, muzaktilmasserne.dk</p>
-				</article>
-				<article  class="prose mb-6">
-					<span class="font-bold">Sjove anekdoter</span>
-					<p>Jørn kan det der - og han bliver bedre og bedre. Klart det bedste af Jørns kurser - De tre første var også lidt sløve, men her... Han viser han mestrer forførelsesns kunst” Tillykke - godt arbejde.</p>
-					<p class="italic">Folmer Bro, folmerbrorocks.dk</p>
-				</article>
-			</div>
-		</section>
-
 		<section class="mt-32" id="kursusgange">
 			<h2 class="text-4xl font-bold">Kursusgange</h2>
 			<div class="grid grid-cols-1 lg:grid-cols-2 mx-auto mt-4 gap-8">
@@ -100,7 +79,84 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 			</article>
 		</section>
 
-		<section id="inspiration" class="mt-32">
+		<section class="mt-32">
+			<h2 class="text-4xl font-bold">Kursisterne siger</h2>
+			<div class="grid grid-cols-1 lg:grid-cols-3 mx-auto gap-4">
+				<article class="prose mb-6">
+					<span class="font-bold">Godt</span>
+					<p>Jørns kursus er sjovt, og kursisterne bliver forkælet med kaffe og avec i pauserne. Jeg kunne ikke forlange mere (bort set fra lidt wienerbrød)</p>
+					<p class="italic">Sanne Tovgaard, Proletikken</p>
+				</article>
+				<article class="prose mb-6">
+					<span class="font-bold">Jeg gik glad hjem</span>
+					<p>Oplæggende er underholdende, og der er masser af sjove historier om små, snedige tricks man kan bruge til at lokke penge ud af folk. Hvad mere skal man sige om et kursus?</p>
+					<p class="italic">Kim Broggaard, muzaktilmasserne.dk</p>
+				</article>
+				<article  class="prose mb-6">
+					<span class="font-bold">Sjove anekdoter</span>
+					<p>Jørn kan det der - og han bliver bedre og bedre. Klart det bedste af Jørns kurser - De tre første var også lidt sløve, men her... Han viser han mestrer forførelsesns kunst” Tillykke - godt arbejde.</p>
+					<p class="italic">Folmer Bro, folmerbrorocks.dk</p>
+				</article>
+			</div>
+		</section>
+
+		<section  id="tilmelding" class="max-w-lg mx-auto mt-32 p-4">
+			<h2 class="text-4xl font-bold pb-4">Tilmeld dig</h2>
+			<form class="space-y-4 grid grid-cols-1 gap-6">
+	
+				<div class="">
+					<label for="kursusgang">Kursusgang:</label>					
+					<select name="kursusgang" id="kursusgang">
+						<option value="oktober">Oktober 2024</option>
+						<option value="december">December 2024</option>
+						<option value="februar">Februar 2025</option>
+					</select>
+				</div>
+	
+				<div class="">
+					<span>Betaling:</span>
+					<input type="radio" id="forud" name="levering" checked="checked">
+					<label for="forud">Forudbetaling</label>
+					<input type="radio" id="kredit" name="levering">
+					<label for="kredit">Kredit</label>
+					<input type="radio" id="kontant" name="levering">
+					<label for="kontant">Kontant</label>
+					
+				</div>
+			
+				<div class="grid gap-3">
+					<label for="navn">Navn:</label>
+					<input type="text" id="navn" name="navn" placeholder="Anders And">
+				</div>
+	
+				<div class="grid gap-3">
+					<label for="adresse">Adresse:</label>
+					<input type="text" id="adresse" name="adresse" placeholder="Paradisæblevej 8">
+				</div>
+	
+				<div class="grid gap-3 grid-cols-6">
+					<label for="postnummer" class="col-span-6">Postnummer & by:</label>
+					<input type="text" id="postnummer" name="postnummer" class="col-span-2" placeholder="0900">
+					<input type="text" id="bynavn" name="bynavn" disabled class="col-span-4" placeholder="Andeby C">
+				</div>
+	
+				<div class="grid gap-3">
+					<label for="telefon">Telefon:</label>
+					<input type="tel" id="telefon" name="telefon" placeholder="555-555">
+				</div>
+	
+				<div class="">
+					<input type="checkbox" id="nyhedsbrev" name="nyhedsbrev">
+					<label for="nyhedsbrev">Ja tak til nyhedsbreve og tilbud</label>
+				</div>
+	
+				<div class="flex justify-end">
+					<Button variant="primary" size="medium">Til betaling</Button>
+				</div>
+			</form>
+		</section>
+
+		<section id="inspiration" class="my-32">
 			<h2 class="text-4xl font-bold">Inspiration fra tidligere kurser</h2>
 			<div class="columns-2 lg:columns-4">
 			{
@@ -117,61 +173,5 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 			}
 			</div>
 		</section>
-		<!-- tailwind form -->
-	<section  id="tilmelding" class="max-w-lg mx-auto mt-32 p-4">
-		<h2 class="text-4xl font-bold pb-4">Tilmeld dig</h2>
-		<form class="space-y-4 grid grid-cols-1 gap-6">
 
-			<div class="">
-				<label for="kursusgang">Kursusgang:</label>					
-				<select name="kursusgang" id="kursusgang">
-					<option value="oktober">Oktober 2024</option>
-					<option value="december">December 2024</option>
-					<option value="februar">Februar 2025</option>
-				</select>
-			</div>
-
-			<div class="">
-				<span>Betaling:</span>
-				<input type="radio" id="forud" name="levering" checked="checked">
-				<label for="forud">Forudbetaling</label>
-				<input type="radio" id="kredit" name="levering">
-				<label for="kredit">Kredit</label>
-				<input type="radio" id="kontant" name="levering">
-				<label for="kontant">Kontant</label>
-				
-			</div>
-		
-			<div class="grid gap-3">
-				<label for="navn">Navn:</label>
-				<input type="text" id="navn" name="navn" placeholder="Anders And">
-			</div>
-
-			<div class="grid gap-3">
-				<label for="adresse">Adresse:</label>
-				<input type="text" id="adresse" name="adresse" placeholder="Paradisæblevej 8">
-			</div>
-
-			<div class="grid gap-3 grid-cols-6">
-				<label for="postnummer" class="col-span-6">Postnummer & by:</label>
-				<input type="text" id="postnummer" name="postnummer" class="col-span-2" placeholder="0900">
-				<input type="text" id="bynavn" name="bynavn" disabled class="col-span-4" placeholder="Andeby C">
-			</div>
-
-			<div class="grid gap-3">
-				<label for="telefon">Telefon:</label>
-				<input type="tel" id="telefon" name="telefon" placeholder="555-555">
-			</div>
-
-			<div class="">
-				<input type="checkbox" id="nyhedsbrev" name="nyhedsbrev">
-				<label for="nyhedsbrev">Ja tak til nyhedsbreve og tilbud</label>
-			</div>
-
-			<div class="flex justify-end">
-				<Button variant="primary" size="medium">Til betaling</Button>
-			</div>
-		</form>
-	</section>
-	<!-- tailwind form slut -->
 </MainLayout>
